@@ -14,4 +14,5 @@ const Root = styled.div`
   height: 100vh;
   background-color: white;
   margin: 0 auto;
+  padding: 0 1rem;
 `;
