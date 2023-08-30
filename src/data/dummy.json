@@ -1,0 +1,66 @@
+{
+  "data": [
+    {
+      "groupName": "아침 할 일",
+      "groupId": 1,
+      "isSelected": true,
+      "toDoList": [
+        {
+          "toDoName": "A",
+          "toDoId": 1,
+          "status": "todo",
+          "isRemoved": false
+        },
+        {
+          "toDoName": "B",
+          "toDoId": 2,
+          "status": "ing",
+          "isRemoved": false
+        },
+        {
+          "toDoName": "C",
+          "toDoId": 3,
+          "status": "delay",
+          "isRemoved": false
+        },
+        {
+          "toDoName": "D",
+          "toDoId": 4,
+          "status": "done",
+          "isRemoved": false
+        }
+      ]
+    },
+    {
+      "groupName": "오후 할 일",
+      "groupId": 2,
+      "isSelected": true,
+      "toDoList": [
+        {
+          "toDoName": "AA",
+          "toDoId": 1,
+          "status": "todo",
+          "isRemoved": false
+        },
+        {
+          "toDoName": "BB",
+          "toDoId": 2,
+          "status": "ing",
+          "isRemoved": false
+        },
+        {
+          "toDoName": "CC",
+          "toDoId": 3,
+          "status": "delay",
+          "isRemoved": false
+        },
+        {
+          "toDoName": "DD",
+          "toDoId": 4,
+          "status": "done",
+          "isRemoved": false
+        }
+      ]
+    }
+  ]
+}
