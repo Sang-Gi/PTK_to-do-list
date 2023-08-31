@@ -4,6 +4,7 @@ import { styled as mstyled } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
+import GroupAdd from "./GroupAdd";
 
 export default function Header() {
   // 날짜
@@ -67,31 +68,7 @@ export default function Header() {
           aria-describedby="modal-modal-description"
         >
           <ModalBox>
-            <CategoryBox>
-              <CustomTextField
-                label="그룹 이름"
-                variant="outlined"
-                size="small"
-              />
-              <Button
-                color="primary"
-                variant="contained"
-                sx={{ width: "100%" }}
-                disableElevation
-                onClick={handleOpen}
-              >
-                등록
-              </Button>
-              <Button
-                color="error"
-                variant="contained"
-                sx={{ width: "100%" }}
-                disableElevation
-                onClick={handleOpen}
-              >
-                취소
-              </Button>
-            </CategoryBox>
+            <GroupAdd handleClose={handleClose} />
           </ModalBox>
         </Modal>
       </InputBox>
@@ -122,18 +99,7 @@ const ModalBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 30%;
   height: 50%;
   margin: 0 auto;
-`;
-
-const CategoryBox = styled.div`
-  width: 100%;
-  height: 33%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: white;
-  border-radius: 0.3rem;
-  padding: 0.5rem 0.7rem;
 `;
