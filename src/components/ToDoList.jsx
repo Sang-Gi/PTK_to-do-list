@@ -1,16 +1,18 @@
 import styled from "styled-components";
+import { useRecoilState } from "recoil";
 import GroupList from "./GroupList";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect } from "react";
+import { fetchGetGroupList } from "../api/index";
+import { groupListState } from "../recoil/index";
 
 export default function ToDoList() {
-  const [groups, setGroups] = useState([]);
+  const [groups, setGroups] = useRecoilState(groupListState);
 
   useEffect(() => {
     // fetch => group list 불러오기
     const fetchData = async () => {
       try {
-        const res = await axios("/data/dummy.json");
+        const res = await fetchGetGroupList();
         setGroups(res.data.groups);
       } catch (err) {
         console.error("Error: ", err);

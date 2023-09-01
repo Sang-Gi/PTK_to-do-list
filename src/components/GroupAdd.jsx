@@ -1,19 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { styled as mstyled } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import { useRecoilState } from "recoil";
+import { groupListState } from "../recoil/index";
 
 export default function GroupAdd({ handleClose }) {
+  const [newGroupName, setNewGroup] = useState("");
+  const [groups, setGroups] = useRecoilState(groupListState);
+
+  const handleGroupSubmit = async () => {
+    console.log("등록 버튼이 눌렸습니다. 입력값:", newGroupName);
+    const lastIdx = groups[groups.length - 1].groupId + 1;
+    console.log(lastIdx);
+    const newGroupObj = {
+      groupName: newGroupName,
+      groupId: lastIdx,
+      isSelected: true,
+      toDoList: [],
+    };
+    console.log([...groups, newGroupObj]);
+    setGroups([...groups, newGroupObj]);
+  };
+
+  const handleInputChange = (event) => {
+    setNewGroup(event.target.value);
+  };
+
   return (
     <ModalBox>
       <CategoryBox>
-        <CustomTextField label="그룹 이름" variant="outlined" size="small" />
+        <CustomTextField
+          label="그룹 이름"
+          variant="outlined"
+          size="small"
+          value={newGroupName}
+          onChange={handleInputChange}
+        />
         <Button
           color="primary"
           variant="contained"
           sx={{ width: "100%" }}
           disableElevation
+          onClick={handleGroupSubmit}
         >
           등록
         </Button>
@@ -44,6 +74,7 @@ const ModalBox = styled.div`
 `;
 
 const CategoryBox = styled.div`
+  width: 100%;
   height: 8rem;
   display: flex;
   flex-direction: column;

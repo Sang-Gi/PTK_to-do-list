@@ -99,7 +99,7 @@ const ModalBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30%;
+  width: 50%;
   height: 50%;
   margin: 0 auto;
 `;
