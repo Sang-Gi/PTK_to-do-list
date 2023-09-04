@@ -28,13 +28,19 @@
           "toDoId": 4,
           "status": "done",
           "isRemoved": false
+        },
+        {
+          "toDoName": "F",
+          "toDoId": 5,
+          "status": "done",
+          "isRemoved": false
         }
       ]
     },
     {
       "groupName": "오후 할 일",
       "groupId": 2,
-      "isSelected": true,
+      "isSelected": false,
       "toDoList": [
         {
           "toDoName": "AA",

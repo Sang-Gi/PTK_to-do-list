@@ -17,11 +17,11 @@ export default function GroupAdd({ handleClose }) {
     const newGroupObj = {
       groupName: newGroupName,
       groupId: lastIdx,
-      isSelected: true,
+      isSelected: false,
       toDoList: [],
     };
-    console.log([...groups, newGroupObj]);
     setGroups([...groups, newGroupObj]);
+    handleClose();
   };
 
   const handleInputChange = (event) => {

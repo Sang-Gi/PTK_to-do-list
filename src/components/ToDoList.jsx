@@ -20,14 +20,16 @@ export default function ToDoList() {
     };
 
     fetchData();
-  }, []);
+  }, [setGroups]);
 
   return (
     <Root>
-      <h2>리스트</h2>
-      {groups.map((group) => {
-        return <GroupList key={group.groupId} group={group} />;
-      })}
+      <h2>리스트 휴지통</h2>
+      <ListBox>
+        {groups.map((group) => {
+          return <GroupList key={group.groupId} group={group} />;
+        })}
+      </ListBox>
     </Root>
   );
 }
@@ -35,4 +37,10 @@ export default function ToDoList() {
 const Root = styled.div`
   width: 100%;
   height: 70%;
+`;
+
+const ListBox = styled.div`
+  width: 100%;
+  height: 90%;
+  overflow-y: auto;
 `;
