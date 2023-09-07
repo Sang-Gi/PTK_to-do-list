@@ -83,12 +83,14 @@ export default function Header() {
           label="Todo..."
           variant="outlined"
           size="small"
+          disabled={isSelectedGroupId < 0 ? true : false}
         />
         <Button
           variant="contained"
           disableElevation
           sx={{ marginLeft: "0.5rem" }}
           onClick={handleAddTodo}
+          disabled={isSelectedGroupId < 0 ? true : false}
         >
           {/* disableElevation? : MUI의 z축, 즉 기본 쉐도우처리를 지워줌 */}
           등록
@@ -101,6 +103,7 @@ export default function Header() {
           sx={{ width: "100%" }}
           disableElevation
           onClick={handleOpen}
+          disabled={isSelectedGroupId < 0 ? true : false}
         >
           그룹 추가
         </Button>

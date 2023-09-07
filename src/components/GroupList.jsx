@@ -6,8 +6,8 @@ import FormGroup from "@mui/material/FormGroup";
 import GroupListItem from "./GroupListItem";
 
 // 아이콘추가예정
-// import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-// import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 
 export default function GroupList({ group }) {
   const [groups, setGroups] = useRecoilState(groupListState);
@@ -44,7 +44,9 @@ export default function GroupList({ group }) {
           <span className="name">{group.groupName}</span>
           <span className="number"> ({group.toDoList.length})</span>
         </div>
-        <span onClick={handleIsDroped}>드롭</span>
+        <span onClick={handleIsDroped}>
+          {groupDrop ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
+        </span>
       </GroupNameBox>
       <GroupTodoBox status={groupDrop.toString()}>
         <FormGroup>
@@ -63,6 +65,7 @@ const Root = styled.div`
 
 const GroupNameBox = styled.div`
   display: flex;
+  justify-content: space-between;
   align-items: center;
   background-color: ${(props) => (props.status === "true" ? "#2F80ED" : "")};
   color: ${(props) => (props.status === "true" ? "white" : "")};

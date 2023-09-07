@@ -7,10 +7,13 @@ import { groupListState } from "../recoil/index";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import Button from "@mui/material/Button";
 import { styled as mstyled } from "@mui/material/styles";
+import { useSetRecoilState } from "recoil";
+import { isSelectedGroupState } from "../recoil/index";
 
 export default function ToDoList() {
   const [groups, setGroups] = useRecoilState(groupListState);
   const [tabStatus, setTabStatus] = useState("list");
+  const setIsSelectedGroup = useSetRecoilState(isSelectedGroupState);
 
   useEffect(() => {
     // fetch => group list 불러오기
@@ -28,11 +31,13 @@ export default function ToDoList() {
 
   const handleHeaderAble = () => {
     // TODO : 헤더 영역 비활성화 추가
+    setIsSelectedGroup(1);
     setTabStatus("list");
   };
 
   const handleHeaderDisable = () => {
     // TODO : 헤더 영역 비활성화 추가
+    setIsSelectedGroup(-1);
     setTabStatus("trash");
   };
 
